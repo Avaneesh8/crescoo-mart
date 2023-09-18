@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(
-        Duration(seconds: 3),
+        Duration(seconds: 1),
             () => Navigator.pushReplacement(
             context as BuildContext, MaterialPageRoute(builder: (context) => MinimalistLogin())));
   }
@@ -34,7 +34,8 @@ class _SplashScreenState extends State<SplashScreen> {
             children: [
               Image(width: 150, image: AssetImage('images/CrescooLogo.png')),
               Text(
-                "Crescoo\nWorkers",
+                "Crescoo\nMart",
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 35,

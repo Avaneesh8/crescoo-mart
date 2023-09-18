@@ -17,10 +17,10 @@ class Top_part extends StatelessWidget {
                 width: .550*MediaQuery.of(context).size.width,
                 height: .050*MediaQuery.of(context).size.height,
                 child: Text(
-                  'Crescoo \nWorkers',
+                  'Crescoo \nMart',
                   style: TextStyle(
                     color: Color(0xFF4F4F4F),
-                    fontSize: 25,
+                    fontSize: 20,
                     fontFamily: 'Hind Siliguri',
                     fontWeight: FontWeight.w700,
                   ),
@@ -29,7 +29,7 @@ class Top_part extends StatelessWidget {
             ),
             Positioned(
               left: .580*MediaQuery.of(context).size.width,
-              top: .175 * MediaQuery.of(context).size.height,
+              top: .155 * MediaQuery.of(context).size.height,
               child: Text(
                 '- Build it up',
                 style: TextStyle(

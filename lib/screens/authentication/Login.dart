@@ -1,9 +1,7 @@
 import 'package:country_picker/country_picker.dart';
-import 'package:crescoo_mart/screens/OTPScreen_login.dart';
-import 'package:crescoo_mart/screens/OTPScreen_signup.dart';
-import 'package:crescoo_mart/screens/SignUp.dart';
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
+import '../../auth_provider.dart';
 import '../../widgets/Top_part.dart';
 
 class Login extends StatefulWidget {
@@ -38,8 +36,8 @@ class _LoginState extends State<Login> {
     return Scaffold(
       body: Container(
         color: Colors.white,
-        child: ListView(
-          children: [Container(
+        child: ListView(children: [
+          Container(
             //color: Colors.white,
             child: Column(
               children: [
@@ -70,8 +68,8 @@ class _LoginState extends State<Login> {
                 Column(
                   children: [
                     Padding(
-                      padding:
-                          const EdgeInsets.symmetric(vertical: 25, horizontal: 35),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 25, horizontal: 35),
                       child: TextFormField(
                         cursorColor: Colors.black,
                         controller: phoneController,
@@ -106,7 +104,8 @@ class _LoginState extends State<Login> {
                               onTap: () {
                                 showCountryPicker(
                                     context: context,
-                                    countryListTheme: const CountryListThemeData(
+                                    countryListTheme:
+                                        const CountryListThemeData(
                                       bottomSheetHeight: 550,
                                     ),
                                     onSelect: (value) {
@@ -149,20 +148,16 @@ class _LoginState extends State<Login> {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(15.0),
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const OTPScreenLogin()),
-                          );
-                        },
+                      child: InkWell(
+                        onTap: () => sendPhoneNumber(),
                         child: Container(
                           decoration: BoxDecoration(
                               color: Color.fromRGBO(189, 189, 199, 1),
                               border: Border.all(
                                 color: Color.fromRGBO(189, 189, 199, 1),
                               ),
-                              borderRadius: BorderRadius.all(Radius.circular(25))),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(25))),
                           constraints: BoxConstraints(
                               minWidth: 200,
                               maxWidth: .5 * MediaQuery.of(context).size.width),
@@ -175,30 +170,6 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      //Use of SizedBox
-                      height: .15 * MediaQuery.of(context).size.height,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(builder: (context) => const SignUp()),
-                          );
-                        },
-                        child: Container(
-                          width: MediaQuery.of(context).size.width,
-                          height: 50,
-                          child: Center(
-                              child: Text(
-                            "Not signed up? Tap here to sign up.",
-                            style: TextStyle(color: Colors.black, fontSize: 20),
-                          )),
-                        ),
-                      ),
-                    ),
                   ],
                 ),
               ],
@@ -207,5 +178,11 @@ class _LoginState extends State<Login> {
         ]),
       ),
     );
+  }
+
+  void sendPhoneNumber() {
+    final ap = Provider.of<AuthProvider>(context, listen: false);
+    String phoneNumber = phoneController.text.trim();
+    ap.signInWithPhone(context, "+${selectedCountry.phoneCode}$phoneNumber");
   }
 }
