@@ -1,11 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:crescoo_mart/screens/NavigatonBar/pitches.dart';
+import 'package:crescoo_mart/screens/NavigatonBar/worker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:velocity_x/velocity_x.dart';
 import '../../auth_provider.dart';
+import '../../widgets/NavBar.dart';
 import '../../widgets/Top_part.dart';
 import '../SplashScreen.dart';
+import 'mart.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -91,11 +95,13 @@ class _ProfileState extends State<Profile> {
       print('Error updating user data: $e');
     }
   }
+  int currentIndex = 1; // Set the initial index for Mart
 
   @override
   Widget build(BuildContext context) {
     final ap = Provider.of<AuthProvider>(context, listen: false);
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Container(
         height: MediaQuery.of(context).size.height,
         color: Colors.white,
@@ -340,6 +346,39 @@ class _ProfileState extends State<Profile> {
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavBar(
+        currentIndex: currentIndex,
+        onTap: (index) {
+          setState(() {
+            currentIndex = index; // Update the current index when an item is tapped
+          });
+
+          // Use Navigator to navigate to the corresponding page
+          switch (index) {
+            case 0:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => Worker()),
+              );
+              break;
+            case 1:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => Mart()),
+              );
+              break;
+            case 2:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => Pitches()),
+              );
+              break;
+            case 3:
+
+              break;
+          }
+        },
       ),
     );
   }

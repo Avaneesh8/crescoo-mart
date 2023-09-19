@@ -1,3 +1,6 @@
+import 'package:crescoo_mart/screens/NavigatonBar/pitches.dart';
+import 'package:crescoo_mart/screens/NavigatonBar/profile.dart';
+import 'package:crescoo_mart/screens/NavigatonBar/worker.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -200,6 +203,31 @@ class _MartState extends State<Mart> {
           setState(() {
             currentIndex = index; // Update the current index when an item is tapped
           });
+
+          // Use Navigator to navigate to the corresponding page
+          switch (index) {
+            case 0:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => Worker()),
+              );
+              break;
+            case 1:
+            // MartPage is already the current page, no need to navigate
+              break;
+            case 2:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => Pitches()),
+              );
+              break;
+            case 3:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => Profile()),
+              );
+              break;
+          }
         },
       ),
     );
