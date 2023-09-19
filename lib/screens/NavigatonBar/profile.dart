@@ -102,247 +102,242 @@ class _ProfileState extends State<Profile> {
     final ap = Provider.of<AuthProvider>(context, listen: false);
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        color: Colors.white,
-        child: ListView(
+      body: SingleChildScrollView(
+        child: Column(
           children: [
-            Column(
-              children: [
-                SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  height: .200 * MediaQuery.of(context).size.height,
-                  child: const Top_part(),
+            (MediaQuery.of(context).size.height*.06).heightBox,
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: .200 * MediaQuery.of(context).size.height,
+              child: const Top_part(),
+            ),
+            SizedBox(height: MediaQuery.of(context).size.height * .04),
+            Container(
+              width: MediaQuery.of(context).size.width * .85,
+              height: MediaQuery.of(context).size.height * .45,
+              decoration: ShapeDecoration(
+                color: Color(0xFFE0DEDE),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(25),
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height * .04),
-                Container(
-                  width: MediaQuery.of(context).size.width * .85,
-                  height: MediaQuery.of(context).size.height * .45,
-                  decoration: ShapeDecoration(
-                    color: Color(0xFFE0DEDE),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                    shadows: [
-                      BoxShadow(
-                        color: Color(0x3F000000),
-                        blurRadius: 4,
-                        offset: Offset(10, 10),
-                        spreadRadius: 0,
-                      )
-                    ],
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                        left: 35, right: 35, top: 10, bottom: 10),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                shadows: [
+                  BoxShadow(
+                    color: Color(0x3F000000),
+                    blurRadius: 4,
+                    offset: Offset(10, 10),
+                    spreadRadius: 0,
+                  )
+                ],
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 35, right: 35, top: 10, bottom: 10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Details",
-                              style: TextStyle(
-                                fontSize: 35,
-                                fontFamily: 'Poppins',
-                              ),
-                            ),
-                            _isEditing
-                                ? IconButton(
-                              icon: Icon(Icons.save),
-                              onPressed: _saveChanges,
-                            )
-                                : IconButton(
-                              icon: Icon(Icons.edit),
-                              onPressed: _toggleEdit,
-                            ),
-                          ],
-                        ),
-                        Container(
-                          padding: EdgeInsets.symmetric(vertical: 8.0),
-                          constraints: BoxConstraints(
-                            maxWidth: 400.0,
-                          ),
-                          child: TextFormField(
-                            controller: _nameController,
-                            readOnly: !_isEditing,
-                            decoration: InputDecoration(
-                              labelText: 'Name',
-                              labelStyle: TextStyle(
-                                color: Color.fromRGBO(26, 50, 81, 1),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color.fromRGBO(26, 50, 81, 1),
-                                ),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color.fromRGBO(26, 50, 81, 1),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          padding: EdgeInsets.symmetric(vertical: 8.0),
-                          constraints: BoxConstraints(
-                            maxWidth: 400.0,
-                          ),
-                          child: TextFormField(
-                            controller: _addressController,
-                            readOnly: !_isEditing,
-                            decoration: InputDecoration(
-                              labelText: 'Address',
-                              labelStyle: TextStyle(
-                                color: Color.fromRGBO(26, 50, 81, 1),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color.fromRGBO(26, 50, 81, 1),
-                                ),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color.fromRGBO(26, 50, 81, 1),
-                                ),
-                              ),
-                            ),
+                        Text(
+                          "Details",
+                          style: TextStyle(
+                            fontSize: 35,
+                            fontFamily: 'Poppins',
                           ),
                         ),
                         _isEditing
-                            ? Container(
-                          padding: EdgeInsets.symmetric(vertical: 8.0),
-                          constraints: BoxConstraints(
-                            maxWidth: 400.0,
-                          ),
-                          child: DropdownButtonFormField<String>(
-                            value: _selectedCity,
-                            items: cities.map((city) {
-                              return DropdownMenuItem<String>(
-                                value: city,
-                                child: Text(city),
-                              );
-                            }).toList(),
-                            onChanged: (value) {
-                              setState(() {
-                                _selectedCity = value!;
-                              });
-                            },
-                            decoration: InputDecoration(
-                              labelText: 'City',
-                              labelStyle: TextStyle(
-                                color: Color.fromRGBO(26, 50, 81, 1),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color.fromRGBO(26, 50, 81, 1),
-                                ),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color.fromRGBO(26, 50, 81, 1),
-                                ),
-                              ),
-                            ),
-                          ),
+                            ? IconButton(
+                          icon: Icon(Icons.save),
+                          onPressed: _saveChanges,
                         )
-                            : Container(
-                          padding: EdgeInsets.symmetric(vertical: 8.0),
-                          constraints: BoxConstraints(
-                            maxWidth: 400.0,
-                          ),
-                          child: TextFormField(
-                            controller: TextEditingController(text: _selectedCity),
-                            readOnly: true,
-                            decoration: InputDecoration(
-                              labelText: 'City',
-                              labelStyle: TextStyle(
-                                color: Color.fromRGBO(26, 50, 81, 1),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color.fromRGBO(26, 50, 81, 1),
-                                ),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color.fromRGBO(26, 50, 81, 1),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          padding: EdgeInsets.symmetric(vertical: 8.0),
-                          constraints: BoxConstraints(
-                            maxWidth: 400.0,
-                          ),
-                          child: TextFormField(
-                            controller: _phoneNumberController,
-                            readOnly: true,
-                            decoration: InputDecoration(
-                              labelText: 'Phone Number',
-                              labelStyle: TextStyle(
-                                color: Color.fromRGBO(26, 50, 81, 1),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color.fromRGBO(26, 50, 81, 1),
-                                ),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color.fromRGBO(26, 50, 81, 1),
-                                ),
-                              ),
-                            ),
-                          ),
+                            : IconButton(
+                          icon: Icon(Icons.edit),
+                          onPressed: _toggleEdit,
                         ),
                       ],
                     ),
-                  ),
-                ),
-                (.02 * MediaQuery.of(context).size.height).heightBox,
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: InkWell(
-                    onTap: () {
-                      ap.userSignOut().then(
-                            (value) => Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const SplashScreen(),
-                          ),
-                              (Route<dynamic> route) => false,
-                        ),
-                      );
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(26, 50, 81, 1),
-                        border: Border.all(
-                          color: Color.fromRGBO(26, 50, 81, 1),
-                        ),
-                        borderRadius: BorderRadius.all(Radius.circular(25)),
-                      ),
+                    Container(
+                      padding: EdgeInsets.symmetric(vertical: 8.0),
                       constraints: BoxConstraints(
-                        minWidth: 200,
-                        maxWidth: .5 * MediaQuery.of(context).size.width,
+                        maxWidth: 400.0,
                       ),
-                      height: 50,
-                      child: Center(
-                        child: Text(
-                          'Log Out',
-                          style: TextStyle(color: Colors.white, fontSize: 25),
+                      child: TextFormField(
+                        controller: _nameController,
+                        readOnly: !_isEditing,
+                        decoration: InputDecoration(
+                          labelText: 'Name',
+                          labelStyle: TextStyle(
+                            color: Color.fromRGBO(26, 50, 81, 1),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color.fromRGBO(26, 50, 81, 1),
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color.fromRGBO(26, 50, 81, 1),
+                            ),
+                          ),
                         ),
                       ),
                     ),
+                    Container(
+                      padding: EdgeInsets.symmetric(vertical: 8.0),
+                      constraints: BoxConstraints(
+                        maxWidth: 400.0,
+                      ),
+                      child: TextFormField(
+                        controller: _addressController,
+                        readOnly: !_isEditing,
+                        decoration: InputDecoration(
+                          labelText: 'Address',
+                          labelStyle: TextStyle(
+                            color: Color.fromRGBO(26, 50, 81, 1),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color.fromRGBO(26, 50, 81, 1),
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color.fromRGBO(26, 50, 81, 1),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    _isEditing
+                        ? Container(
+                      padding: EdgeInsets.symmetric(vertical: 8.0),
+                      constraints: BoxConstraints(
+                        maxWidth: 400.0,
+                      ),
+                      child: DropdownButtonFormField<String>(
+                        value: _selectedCity,
+                        items: cities.map((city) {
+                          return DropdownMenuItem<String>(
+                            value: city,
+                            child: Text(city),
+                          );
+                        }).toList(),
+                        onChanged: (value) {
+                          setState(() {
+                            _selectedCity = value!;
+                          });
+                        },
+                        decoration: InputDecoration(
+                          labelText: 'City',
+                          labelStyle: TextStyle(
+                            color: Color.fromRGBO(26, 50, 81, 1),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color.fromRGBO(26, 50, 81, 1),
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color.fromRGBO(26, 50, 81, 1),
+                            ),
+                          ),
+                        ),
+                      ),
+                    )
+                        : Container(
+                      padding: EdgeInsets.symmetric(vertical: 8.0),
+                      constraints: BoxConstraints(
+                        maxWidth: 400.0,
+                      ),
+                      child: TextFormField(
+                        controller: TextEditingController(text: _selectedCity),
+                        readOnly: true,
+                        decoration: InputDecoration(
+                          labelText: 'City',
+                          labelStyle: TextStyle(
+                            color: Color.fromRGBO(26, 50, 81, 1),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color.fromRGBO(26, 50, 81, 1),
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color.fromRGBO(26, 50, 81, 1),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.symmetric(vertical: 8.0),
+                      constraints: BoxConstraints(
+                        maxWidth: 400.0,
+                      ),
+                      child: TextFormField(
+                        controller: _phoneNumberController,
+                        readOnly: true,
+                        decoration: InputDecoration(
+                          labelText: 'Phone Number',
+                          labelStyle: TextStyle(
+                            color: Color.fromRGBO(26, 50, 81, 1),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color.fromRGBO(26, 50, 81, 1),
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color.fromRGBO(26, 50, 81, 1),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            (.02 * MediaQuery.of(context).size.height).heightBox,
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: InkWell(
+                onTap: () {
+                  ap.userSignOut().then(
+                        (value) => Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SplashScreen(),
+                      ),
+                          (Route<dynamic> route) => false,
+                    ),
+                  );
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Color.fromRGBO(26, 50, 81, 1),
+                    border: Border.all(
+                      color: Color.fromRGBO(26, 50, 81, 1),
+                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(25)),
+                  ),
+                  constraints: BoxConstraints(
+                    minWidth: 200,
+                    maxWidth: .5 * MediaQuery.of(context).size.width,
+                  ),
+                  height: 50,
+                  child: Center(
+                    child: Text(
+                      'Log Out',
+                      style: TextStyle(color: Colors.white, fontSize: 25),
+                    ),
                   ),
                 ),
-              ],
+              ),
             ),
           ],
         ),

@@ -94,6 +94,7 @@ class _WorkerState extends State<Worker> {
       backgroundColor: Colors.white,
       body: Column(
         children: [
+          (MediaQuery.of(context).size.height*.06).heightBox,
           SizedBox(
             width: MediaQuery.of(context).size.width,
             height: .200 * MediaQuery.of(context).size.height,
@@ -102,7 +103,7 @@ class _WorkerState extends State<Worker> {
           Padding(
             padding: const EdgeInsets.only(left: 40, right: 40, top: 20),
             child: Text(
-              "Mart",
+              "Worker",
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
           ),

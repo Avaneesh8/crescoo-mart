@@ -1,4 +1,5 @@
 import 'package:crescoo_mart/screens/NavigatonBar/pitches.dart';
+import 'package:crescoo_mart/screens/NavigatonBar/product_type.dart';
 import 'package:crescoo_mart/screens/NavigatonBar/profile.dart';
 import 'package:crescoo_mart/screens/NavigatonBar/worker.dart';
 import 'package:flutter/material.dart';
@@ -80,10 +81,11 @@ class _MartState extends State<Mart> {
       backgroundColor: Colors.white,
       body: Column(
         children: [
+          (MediaQuery.of(context).size.height*.06).heightBox,
           SizedBox(
             width: MediaQuery.of(context).size.width,
             height: .200 * MediaQuery.of(context).size.height,
-            child: Top_part(), // Assuming Top_part is a custom widget for your top section
+            child: Top_part(),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 40, right: 40, top: 20),
@@ -129,12 +131,12 @@ class _MartState extends State<Mart> {
               ),
             ),
           ),
-          15.heightBox,
+          //15.heightBox,
           Expanded(
             child: ListView(
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.only(left: 20,right: 20),
                   child: GridView.builder(
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
@@ -151,6 +153,10 @@ class _MartState extends State<Mart> {
                           // to determine which item was clicked.
                           String selectedCategory = filteredCategories[index];
                           print("Clicked on category: $selectedCategory");
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(builder: (context) => Product_type(product_ty: selectedCategory,)),
+                          );
                         },
                         child: Container(
                           decoration: BoxDecoration(
