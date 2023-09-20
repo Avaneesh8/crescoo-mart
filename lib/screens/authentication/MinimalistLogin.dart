@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../auth_provider.dart';
 import '../../widgets/NavBar.dart';
-import '../NavigatonBar/mart.dart';
+import '../NavigatonBar/Mart/mart.dart';
+import '../NavigatonBar/worker/worker.dart';
 import 'Login.dart';
 
 class MinimalistLogin extends StatelessWidget {
@@ -56,7 +57,7 @@ class MinimalistLogin extends StatelessWidget {
                           () => Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Mart(),//NavBar(index: 0,),
+                          builder: (context) => const Worker(),//NavBar(index: 0,),
                         ),
                       ),
                     );

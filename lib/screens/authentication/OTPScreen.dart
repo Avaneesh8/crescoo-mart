@@ -5,7 +5,8 @@ import '../../auth_provider.dart';
 import '../../widgets/NavBar.dart';
 import '../../widgets/SnackBar.dart';
 import '../../widgets/Top_part.dart';
-import '../NavigatonBar/mart.dart';
+import '../NavigatonBar/Mart/mart.dart';
+import '../NavigatonBar/worker/worker.dart';
 import 'Details.dart';
 
 class OTPScreen extends StatefulWidget {
@@ -145,7 +146,7 @@ class _OTPScreenState extends State<OTPScreen> {
                         (value) => Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Mart(),//NavBar(index: 0,),
+                          builder: (context) => Worker(),//NavBar(index: 0,),
                         ),
                             (route) => false),
                   ),

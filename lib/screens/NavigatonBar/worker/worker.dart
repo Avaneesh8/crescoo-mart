@@ -1,11 +1,12 @@
 import 'package:crescoo_mart/screens/NavigatonBar/pitches.dart';
 import 'package:crescoo_mart/screens/NavigatonBar/profile.dart';
+import 'package:crescoo_mart/screens/NavigatonBar/worker/worker_list.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-import '../../widgets/NavBar.dart';
-import '../../widgets/Top_part.dart';
-import 'mart.dart';
+import '../../../widgets/NavBar.dart';
+import '../../../widgets/Top_part.dart';
+import '../Mart/mart.dart';
 
 class Worker extends StatefulWidget {
   const Worker({Key? key}) : super(key: key);
@@ -155,6 +156,11 @@ class _WorkerState extends State<Worker> {
                     // to determine which item was clicked.
                     String selectedCategory = filteredCategories[index];
                     print("Clicked on category: $selectedCategory");
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => Worker_list(selectedcategory: selectedCategory,)),
+                    );
+
                   },
                   child: Padding(
                     padding: const EdgeInsets.only(left: 15,right: 15),

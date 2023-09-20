@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import '../../auth_provider.dart';
 import '../../widgets/NavBar.dart';
 import '../../widgets/Top_part.dart';
-import '../NavigatonBar/mart.dart';
+import '../NavigatonBar/Mart/mart.dart';
 
 class Details extends StatefulWidget {
   const Details({Key? key}) : super(key: key);

@@ -1,14 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:crescoo_mart/screens/NavigatonBar/pitches.dart';
 import 'package:crescoo_mart/screens/NavigatonBar/profile.dart';
-import 'package:crescoo_mart/screens/NavigatonBar/worker.dart';
+import 'package:crescoo_mart/screens/NavigatonBar/worker/worker.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-import '../../auth_provider.dart';
-import '../../widgets/NavBar.dart';
-import '../../widgets/Top_part.dart';
+import '../../../auth_provider.dart';
+import '../../../widgets/NavBar.dart';
+import '../../../widgets/Top_part.dart';
 import 'mart.dart';
 
 class Product_type extends StatefulWidget {

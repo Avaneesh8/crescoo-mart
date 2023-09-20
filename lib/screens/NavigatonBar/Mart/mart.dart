@@ -1,12 +1,12 @@
 import 'package:crescoo_mart/screens/NavigatonBar/pitches.dart';
-import 'package:crescoo_mart/screens/NavigatonBar/product_type.dart';
+import 'package:crescoo_mart/screens/NavigatonBar/Mart/product_type.dart';
 import 'package:crescoo_mart/screens/NavigatonBar/profile.dart';
-import 'package:crescoo_mart/screens/NavigatonBar/worker.dart';
+import 'package:crescoo_mart/screens/NavigatonBar/worker/worker.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-import '../../widgets/Top_part.dart';
-import '../../widgets/NavBar.dart'; // Import the custom BottomNavBar
+import '../../../widgets/Top_part.dart';
+import '../../../widgets/NavBar.dart'; // Import the custom BottomNavBar
 
 class Mart extends StatefulWidget {
   const Mart({Key? key}) : super(key: key);
