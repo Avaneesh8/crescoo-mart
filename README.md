@@ -1,7 +1,5 @@
 # crescoo_mart
 
----
-
 ## Table of Contents
 
 - [Introduction](#introduction)
