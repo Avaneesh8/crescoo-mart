@@ -24,7 +24,7 @@ Welcome to Crescoo Mart, an all-in-one mobile application designed to provide us
 - **Seller Engagement:** Review and contact sellers directly for inquiries, negotiations, and collaborations.
 - **Job Search:** Utilize Crescoo Worker's job search functionality to find employment opportunities tailored to your skills and preferences.
 - **Worker Booking:** Book workers who have listed themselves on Crescoo Worker for various tasks and projects.
-- **Profile Management:** Seamlessly manage your profiles and preferences for both seller and worker roles within a single application.00
+- **Profile Management:** Seamlessly manage your profiles and preferences for both seller and worker roles within a single application.
 - **Inventory Updates:** Stay informed about product availability and inventory changes, whether you're a seller or a buyer.
 - **Investor Engagement:** Connect with potential investors by leveraging the pitching capabilities from Crescoo Seller.
 - **Secure Authentication:** Benefit from secure user authentication powered by Firebase to ensure the safety of your personal information.
