@@ -14,7 +14,7 @@
  
 ## Introduction
 
-Welcome to Crescoo Mart, an all-in-one mobile application designed to provide users with an extensive array of services seamlessly integrated from Crescoo Seller and Crescoo Worker. In this unified platform, Crescoo Mart empowers users to explore and purchase products listed on Crescoo Seller, review and contact sellers, and book workers who have listed themselves on Crescoo Worker. Whether you're shopping for goods and services, seeking employment opportunities, or engaging with sellers and workers, Crescoo Mart offers a comprehensive solution to meet your diverse needs.  
+Welcome to Crescoo Mart, an all-in-one mobile application designed to provide users with an extensive array of services seamlessly integrated from Crescoo Seller and Crescoo Worker. In this unified platform, Crescoo Mart empowers users to explore and purchase products listed on Crescoo Seller, review and contact sellers, and book workers who have listed themselves on Crescoo Worker. Whether you're shopping for goods and services, seeking employment opportunities, or engaging with sellers and workers, Crescoo Mart offers a comprehensive solution to meet your diverse needs.   
 
 ---
 
